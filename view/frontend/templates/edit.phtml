@@ -1,0 +1,45 @@
+<?php
+$data = $block->getEditRecord();
+?>
+<div class="col-sm-8">
+      <form method="POST"
+            action="<?= $this->getUrl('helloworld/index/save'); ?>"
+            id="mcf" role="form" name="RegForm" enctype="multipart/form-data">
+            <div class="form-group">
+                  <h2>Form</h2>
+            </div>
+            <div class="form-group">
+                  <input id="post_id"
+                        value="<?php echo $data['post_id'] ?? '' ?>"
+                        hidden name="post_id" type="text" class="form-control" data-validate='{"required":true}'>
+            </div>
+            <div class="form-group">
+                  <label
+                        class="control-label"><span><?= $block->escapeHtml('Name') ?></span></label>
+                  <input id="name" name="name"
+                        value="<?php echo $data['name'] ?? '' ?>"
+                        type="text" class="form-control" data-validate='{"required":true}'>
+            </div>
+            <div class="form-group">
+                  <label
+                        class="control-label"><span><?= $block->escapeHtml('URL key') ?></span></label>
+                  <input id="url_key" name="url_key"
+                        value="<?php echo $data['url_key'] ?? '' ?>"
+                        type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                  <label
+                        class="control-label"><span><?= $block->escapeHtml('Image') ?></span></label>
+                  <input id="featured_image"
+                        value="<?php echo $data['featured_image'] ?? '' ?>"
+                        name="featured_image" type="text" class="form-control">
+            </div>
+            <div class="actions-toolbar">
+                  <div class="primary">
+                        <button type="submit" title="Submit" id="mcf-btn" class="action submit primary">
+                              <span>Submit</span>
+                        </button>
+                  </div>
+            </div>
+      </form>
+</div>
